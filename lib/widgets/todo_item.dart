@@ -7,6 +7,7 @@ class TodoItem extends StatelessWidget {
   final VoidCallback onToggle;
   final VoidCallback onDelete;
   final VoidCallback onEdit;
+  final VoidCallback onTap;
 
   const TodoItem({
     super.key,
@@ -14,6 +15,7 @@ class TodoItem extends StatelessWidget {
     required this.onToggle,
     required this.onDelete,
     required this.onEdit,
+    required this.onTap,
   });
 
   @override
@@ -39,7 +41,7 @@ class TodoItem extends StatelessWidget {
       subtitle: Text(
         todo.completed ? "Completed" : "Pending",
       ),
-
+      onTap: onTap,
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

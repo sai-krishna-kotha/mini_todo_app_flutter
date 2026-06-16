@@ -3,6 +3,7 @@ import 'widgets/todo_item.dart';
 import 'models/todo.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'screens/task_detail_page.dart';
 
 void main() {
   runApp(
@@ -118,6 +119,7 @@ class _TodoHomePageState extends State<TodoHomePage> {
     controller.dispose();
     super.dispose();
   }
+
   @override
   void initState() {
     super.initState();
@@ -230,6 +232,14 @@ class MainHomeScreen extends StatelessWidget {
                       onToggle: () => onToggleTodo(index),
                       onDelete: () => onDelete(index),
                       onEdit: () => onEdit(index),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TaskDetailPage(todo: todos[index]),
+                          ),
+                        );
+                      },
                     );
                   },
               ),

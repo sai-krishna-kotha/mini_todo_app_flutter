@@ -24,6 +24,18 @@ A simple Todo application built with Flutter as part of my Flutter learning jour
 </div>
 
 ---
+### Version 1.0
+
+Implemented:
+
+* Create Todo
+* Read Todos
+* Update Todo
+* Delete Todo
+* Toggle Completion Status
+* Edit Mode
+* Empty State UI
+* Reusable TodoItem Widget
 
 ## Concepts Learned
 
@@ -68,25 +80,9 @@ A simple Todo application built with Flutter as part of my Flutter learning jour
 * Model extraction (`Todo`)
 * Widget extraction (`TodoItem`)
 * Separation of concerns
-
+<br>
 ---
-
-## Project Structure
-
-```text
-lib/
-├── main.dart
-├── models/
-│   └── todo.dart
-└── widgets/
-    └── todo_item.dart
-```
-
----
-
-## Current Version
-
-### Version 1.0
+### Version 2.0
 
 Implemented:
 
@@ -96,15 +92,49 @@ Implemented:
 * Delete Todo
 * Toggle Completion Status
 * Edit Mode
+* Cancel Editing
 * Empty State UI
 * Reusable TodoItem Widget
+* Custom Todo Model
+* Local Data Persistence using SharedPreferences
+* JSON Serialization & Deserialization
 
 ---
+
+### Storage
+
+* SharedPreferences
+* JSON Encoding
+* JSON Decoding
+* Local Persistence
+
+---
+
+## Version 3.0
+
+Implemented:
+
+- Task Details Screen
+- Navigation with Navigator.push()
+- Returning with Navigator.pop()
+- Route-based Data Passing
+- Multi-Screen App Architecture
+- Navigation Callbacks for State Updates
+
+### Navigation
+
+- Navigator
+- Navigator.push()
+- Navigator.pop()
+- MaterialPageRoute
+- Route Stack
+- Passing Data Between Screens
 
 ## Future Improvements
 
 - [x] Local Persistence (Shared Preferences)
-- [ ] Multiple Screens
+- [x] Multiple Screens
+- [x] Navigation Callbacks
 - [ ] Task Filtering
 - [ ] Search Tasks
 - [ ] Dark Mode
