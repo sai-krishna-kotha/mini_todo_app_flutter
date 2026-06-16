@@ -130,6 +130,15 @@ Implemented:
 - Route Stack
 - Passing Data Between Screens
 
+## Screenshots
+  *main screen* <br>
+  *detail task screen* <br>
+
+<div style="display: flex; gap: 10px;">
+  <img src="./assets/screenshots/main_screen.png" alt="Main Screen" width="32%">
+  <img src="./assets/screenshots/detail_screen.png" alt="Detail Screen" width="32%">
+</div>
+
 ## Future Improvements
 
 - [x] Local Persistence (Shared Preferences)
