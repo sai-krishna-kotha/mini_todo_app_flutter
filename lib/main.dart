@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'widgets/todo_item.dart';
 import 'models/todo.dart';
-
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(
@@ -34,6 +35,7 @@ class _TodoHomePageState extends State<TodoHomePage> {
         controller.clear();
       // print(todos);
     });
+    saveTodos();
   }
 
   void deleteTodo(int index) {
@@ -47,6 +49,7 @@ class _TodoHomePageState extends State<TodoHomePage> {
       }
       todos.removeAt(index);
     });
+    saveTodos();
   }
 
   void toggleTodo(int index) {
@@ -54,6 +57,7 @@ class _TodoHomePageState extends State<TodoHomePage> {
       todos[index].completed = !todos[index].completed;
       // print(todos);
     });
+    saveTodos();
   }
 
   void editTodo(int index){
@@ -79,12 +83,45 @@ class _TodoHomePageState extends State<TodoHomePage> {
       editingIndex = null;
       controller.clear();
     });
+    saveTodos();
+  }
+
+  Future<void> saveTodos() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = jsonEncode(
+      todos.map((todo) => todo.toJson()).toList()
+    );
+    print(jsonString);
+    await prefs.setString('todos', jsonString);
+  }
+
+  Future<void> loadTodos() async {
+    final pref = await SharedPreferences.getInstance();
+    final jsonString =  pref.getString('todos');
+    if (jsonString == null){
+      return;
+    }
+    final decoded = jsonDecode(jsonString);
+    final loadedTodos =
+    (decoded as List).map(
+        (item) => Todo.fromJson(
+          item as Map<String, dynamic>,
+        ),
+    ).toList();
+    setState(() {
+      todos = loadedTodos;
+    });
   }
 
   @override
   void dispose() {
     controller.dispose();
     super.dispose();
+  }
+  @override
+  void initState() {
+    super.initState();
+    loadTodos();
   }
 
   @override
