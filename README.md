@@ -103,12 +103,12 @@ Implemented:
 
 ## Future Improvements
 
-* Local Persistence (Shared Preferences)
-* Multiple Screens
-* Task Filtering
-* Search Tasks
-* Dark Mode
-* Improved UI/UX
+- [x] Local Persistence (Shared Preferences)
+- [ ] Multiple Screens
+- [ ] Task Filtering
+- [ ] Search Tasks
+- [ ] Dark Mode
+- [ ] Improved UI/UX
 
 ---
 
